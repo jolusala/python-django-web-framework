@@ -1,0 +1,44 @@
+
+{% extends 'base.html' %}
+
+
+
+{% block content  %}
+
+<h1> About </h1>
+<h2> This is a test </h2>
+
+<p>
+    
+    {{ my_text }},
+    {{ my_number }},
+    {{ my_list }},
+    
+</p>
+
+<ul>
+    <li> {{ my_list.0 }} </li>
+    
+    
+</ul>
+
+
+<ul>
+    {% for my_sub_item in my_list %}
+        {% if my_sub_item == 111 %}
+            <li> {{forloop.counter}} - {{ my_sub_item|add:22 }} - This is a match </li>
+        
+        {% elif my_sub_item == 333%}
+            <li> {{forloop.counter}} - {{ my_sub_item|add:22 }} - This is a match </li>
+        
+        {% else %}
+            <li> {{forloop.counter}} - {{ my_sub_item }} </li>
+            
+        {% endif %}
+
+        <li> {{forloop.counter}} - {{ my_sub_item }} </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
